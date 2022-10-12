@@ -767,9 +767,9 @@
     node-fetch "^2.6.1"
 
 "@sinclair/typebox@^0.24.1":
-  version "0.24.44"
-  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.44.tgz#0a0aa3bf4a155a678418527342a3ee84bd8caa5c"
-  integrity sha512-ka0W0KN5i6LfrSocduwliMMpqVgohtPFidKdMEOUjoOFCHcOOYkKsPRxfs5f15oPNHTm6ERAm0GV/+/LTKeiWg==
+  version "0.24.45"
+  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.45.tgz#a2ea1d151276646e1c6498b06d4183c0b660d5c8"
+  integrity sha512-tD/Zg4RR7/pVVPjgHjnbCeBshwj/4FYfkSwIew8/YmMOalXPilcQiQIbif7DR/SM/e2sZAmy4qrFKDtTjAvz8w==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
