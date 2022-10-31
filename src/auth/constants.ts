@@ -1,3 +1,11 @@
+import { ConfigService } from '@nestjs/config';
+
 export const jwtConstants = {
-  secret: process.env.JWT_SERCRET,
+  useFactory: async (configService: ConfigService) => ({
+    secret: configService.get('JWT_SECRET'),
+    signOptions: {
+      expiresIn: configService.get('JWT_EXP_H', '3600s'),
+    },
+  }),
+  inject: [ConfigService],
 };

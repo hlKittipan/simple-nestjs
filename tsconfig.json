@@ -16,6 +16,7 @@
       "@/config/*": ["src/config/*"],
       "@/schemas/*": ["src/schemas/*"],
       "@/users/*": ["src/users/*"],
+      "@/configs/*": ["src/configs/*"],
     },
     "incremental": true,
     "skipLibCheck": true,
