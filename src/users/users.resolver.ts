@@ -5,7 +5,7 @@ import { UsersInput } from '@/users/users.input';
 @Resolver('Users')
 export class UsersResolver {
   @Query(() => UsersModel)
-  getBook(): UsersModel {
+  getUser(): UsersModel {
     return {
       id: '1',
       name: 'BeforeSecond',
@@ -15,7 +15,7 @@ export class UsersResolver {
   }
 
   @Mutation(() => UsersModel)
-  createBook(@Args('input') input: UsersInput): UsersModel {
+  createUser(@Args('input') input: UsersInput): UsersModel {
     return {
       id: '2',
       ...input,

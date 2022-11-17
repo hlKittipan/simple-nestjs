@@ -11,6 +11,6 @@ export class UsersModel {
   @Field(() => String)
   username: string;
 
-  @Field(() => Number, { nullable: true })
+  @Field(() => String)
   password: string;
 }
