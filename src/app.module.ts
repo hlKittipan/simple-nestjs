@@ -4,17 +4,23 @@ import { BlogsController } from '@/blogs/blogs.controller';
 import { BlogsModule } from '@/blogs/blogs.module';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from '@/users/users.module';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from '@/auth/auth.module';
 import { AppService } from './app.service';
+import { UsersResolver } from '@/users/users.resolver';
 
 /**
  * External library
  * */
 import { MongooseModule } from '@nestjs/mongoose';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 @Module({
   imports: [
-    BlogsModule,
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: 'schema.gql',
+    }),
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
@@ -23,8 +29,9 @@ import { MongooseModule } from '@nestjs/mongoose';
     MongooseModule.forRoot(process.env.MONGODB_URI),
     UsersModule,
     AuthModule,
+    BlogsModule,
   ],
   controllers: [AppController, BlogsController],
-  providers: [AppService],
+  providers: [AppService, UsersResolver],
 })
 export class AppModule {}
