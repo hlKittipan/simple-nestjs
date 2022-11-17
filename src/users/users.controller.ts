@@ -11,9 +11,10 @@ export class UsersController {
   async createUser(
     @Body('password') password: string,
     @Body('username') username: string,
+    @Body('name') name: string,
   ): Promise<User> {
     const saltOrRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltOrRounds);
-    return await this.usersService.createUser(username, hashedPassword);
+    return await this.usersService.createUser(name, username, hashedPassword);
   }
 }

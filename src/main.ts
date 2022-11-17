@@ -10,7 +10,7 @@ async function bootstrap() {
   const appPort = configService.get<number>('PORT', 3000);
   await app.listen(appPort);
 
-  const stage = process.env.STAGE;
+  const stage = process.env.ENV;
   Logger.log(
     'App is running in "' +
       stage +

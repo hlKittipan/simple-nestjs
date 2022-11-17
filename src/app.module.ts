@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { BlogsController } from '@/blogs/blogs.controller';
 import { BlogsModule } from '@/blogs/blogs.module';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from '@/users/users.module';
 import { AuthModule } from '@/auth/auth.module';
 import { AppService } from './app.service';
@@ -30,12 +30,17 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       debug: process.env.ENV === 'DEV',
       playground: process.env.ENV === 'DEV',
     }),
-    MongooseModule.forRoot(process.env.MONGODB_URI),
+    MongooseModule.forRootAsync({
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_URI'),
+      }),
+      inject: [ConfigService],
+    }),
     UsersModule,
     AuthModule,
     BlogsModule,
   ],
   controllers: [AppController, BlogsController],
-  providers: [AppService, UsersResolver],
+  providers: [AppService],
 })
 export class AppModule {}
