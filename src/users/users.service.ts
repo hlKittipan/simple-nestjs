@@ -27,4 +27,8 @@ export class UsersService {
   async getUserGraphQL(query: object): Promise<UsersModel> {
     return this.userModel.findOne(query);
   }
+
+  async getUsersGraphQL(): Promise<UsersModel[]> {
+    return this.userModel.find();
+  }
 }

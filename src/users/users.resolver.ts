@@ -7,14 +7,9 @@ import { UsersModel } from '@/users/users.module';
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
 
-  @Query(() => UsersModel)
-  getUsers(): UsersModel {
-    return {
-      id: '1',
-      name: 'BeforeSecond',
-      username: 'dsfsdfsdf',
-      password: 'd',
-    };
+  @Query(() => [UsersModel])
+  async getUsers() {
+    return await this.usersService.getUsersGraphQL();
   }
 
   @Query(() => UsersModel)
