@@ -14,6 +14,7 @@ export class AuthService {
     private jwtService: JwtService,
     @InjectModel(User.name) private userModel: Model<UserDocument>,
   ) {}
+
   async validateUser(username: string, password: string): Promise<any> {
     const user = await this.usersService.getUser(username);
     if (!user) return null;
@@ -26,8 +27,9 @@ export class AuthService {
     }
     return null;
   }
+
   async login(user: any) {
-    const payload = { username: user.username, sub: user._id };
+    const payload = { username: user.username, sub: user.userId };
     return {
       access_token: this.jwtService.sign(payload),
       user,

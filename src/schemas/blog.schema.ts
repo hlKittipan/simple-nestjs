@@ -3,7 +3,7 @@ import mongoose, { HydratedDocument } from 'mongoose';
 import { User } from '@/schemas/user.schema';
 export type BlogDocument = HydratedDocument<Blog>;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Blog {
   @Prop()
   title: string;
