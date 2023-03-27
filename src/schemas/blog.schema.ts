@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
 import { User } from '@/schemas/user.schema';
+
 export type BlogDocument = HydratedDocument<Blog>;
 
 @Schema({ timestamps: true })
@@ -19,6 +20,12 @@ export class Blog {
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
   author: User;
+
+  @Prop({ type: Date })
+  createdAt: Date;
+
+  @Prop({ type: Date })
+  updatedAt: Date;
 
   @Prop({ default: false })
   deleted: boolean;

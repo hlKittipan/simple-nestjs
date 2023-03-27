@@ -13,6 +13,12 @@ export class User {
   @Prop({ required: true })
   password: string;
 
+  @Prop({ type: Date })
+  createdAt: Date;
+
+  @Prop({ type: Date })
+  updatedAt: Date;
+
   @Prop({ default: false })
   deleted: boolean;
 }
