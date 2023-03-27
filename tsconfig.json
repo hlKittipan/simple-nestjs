@@ -12,7 +12,7 @@
     "baseUrl": "./",
     "paths": {
       "@/auth/*": ["src/auth/*"],
-      "@/blogs/*": ["src/blogs/*"],
+      "@/blog/*": ["src/blog/*"],
       "@/config/*": ["src/config/*"],
       "@/schemas/*": ["src/schemas/*"],
       "@/users/*": ["src/users/*"],
