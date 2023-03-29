@@ -29,7 +29,7 @@ export class BlogService {
   async update(id: string, updateBlogDto: UpdateBlogDto): Promise<Blog> {
     return this.blogModel
       .findByIdAndUpdate(id, { $set: updateBlogDto }, { new: true })
-      .populate('author');
+      .populate('author').exec();
   }
 
   remove(id: string) {
