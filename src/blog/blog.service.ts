@@ -1,10 +1,10 @@
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { CreateBlogDto } from './dto/create-blog.dto';
-import { UpdateBlogDto } from './dto/update-blog.dto';
-import { Blog, BlogDocument } from '@/schemas/blog.schema';
-import { User, UserDocument } from '@/schemas/user.schema';
+import { CreateBlogDto } from '@blog/dto/create-blog.dto';
+import { UpdateBlogDto } from '@blog/dto/update-blog.dto';
+import { Blog, BlogDocument } from '@schemas/blog.schema';
+import { User, UserDocument } from '@schemas/user.schema';
 
 @Injectable()
 export class BlogService {
@@ -22,17 +22,17 @@ export class BlogService {
     return this.blogModel.find().populate('author').exec();
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.blogModel.findById(id).populate('author').exec();
   }
 
-  async update(id: number, updateBlogDto: UpdateBlogDto): Promise<Blog> {
+  async update(id: string, updateBlogDto: UpdateBlogDto): Promise<Blog> {
     return this.blogModel
       .findByIdAndUpdate(id, { $set: updateBlogDto }, { new: true })
       .populate('author');
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.blogModel
       .findByIdAndUpdate(id, { deleted: true }, { new: true })
       .exec();

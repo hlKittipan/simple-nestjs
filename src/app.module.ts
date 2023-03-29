@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { BlogModule } from '@/blog/blog.module';
+import { BlogModule } from '@blog/blog.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UsersModule } from '@/users/users.module';
-import { AuthModule } from '@/auth/auth.module';
+import { UsersModule } from '@users/users.module';
+import { AuthModule } from '@auth/auth.module';
 import { AppService } from './app.service';
-import { configuration } from '@/configs/configuration';
+import { configuration } from '@configs/configuration';
 
 /**
  * External library
