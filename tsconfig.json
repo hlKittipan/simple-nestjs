@@ -17,6 +17,7 @@
       "@schemas/*": ["src/schemas/*"],
       "@users/*": ["src/users/*"],
       "@configs/*": ["src/configs/*"],
+      "@middleware/*": ["src/middleware/*"],
     },
     "incremental": true,
     "skipLibCheck": true,

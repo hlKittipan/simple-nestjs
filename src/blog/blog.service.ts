@@ -23,6 +23,7 @@ export class BlogService {
   }
 
   findOne(id: string) {
+    console.log(id);
     return this.blogModel.findById(id).populate('author').exec();
   }
 

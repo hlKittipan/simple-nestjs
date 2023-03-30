@@ -1,15 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument, ObjectId } from 'mongoose';
 import { User } from '@schemas/user.schema';
-import { Transform } from 'class-transformer';
 
 export type BlogDocument = HydratedDocument<Blog>;
 
 @Schema({ timestamps: true })
 export class Blog {
-  @Transform(({ value }) => value.toString())
-  _id: ObjectId;
-
   @Prop()
   title: string;
 
