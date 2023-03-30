@@ -19,12 +19,11 @@ export class BlogService {
   }
 
   findAll() {
-    return this.blogModel.find().populate('author').exec();
+    return this.blogModel.find().populate('author');
   }
 
   findOne(id: string) {
-    console.log(id);
-    return this.blogModel.findById(id).populate('author').exec();
+    return this.blogModel.findById(id).populate('author');
   }
 
   async update(id: string, updateBlogDto: UpdateBlogDto): Promise<Blog> {
